@@ -20,74 +20,106 @@
 
 <body>
 
+    <div id="sideBar" class="terminal-card" , style="background-color: black;">
+        <header>Index</header>
+        <div>
+            <button class="btn btn-default btn-ghost sidebar-button"> Spaceship </button>
+            <br>
+            <br>
+            <button class="btn btn-default btn-ghost sidebar-button"> Contact </button>
+            <br>
+            <br>
+
+
+
+
+
+
+            <button class="btn btn-primary btn-ghost sidebar-button"> Projects </button>
+            <br>
+            <br>
+            <button class="btn btn-primary btn-ghost sidebar-button"> Links </button>
+            <br>
+            <br>
+            <button class="btn btn-primary btn-ghost sidebar-button"> Theory </button>
+            <br>
+            <br>
+
+
+            <button class="btn btn-error btn-ghost sidebar-button"> Donate </button>
+            <br>
+            <br>
+        </div>
+
+    </div>
 
     <div id="header">
         <div id="header_item">
-            <h1>Ovi</h1>
+            <div class="terminal-logo">
+                <h1 class="logo terminal-prompt">Ovi</h1>
+            </div>
         </div>
         <div id="header_item">The Ovi personal site</div>
     </div>
 
-    <hr>
 
     <div id="page">
-        <div id="sideBar" class="terminal-card">
-            <header>Index</header>
-            <div>
-                <div class="terminal-alert"> <a>Box</a> </div>
-                <div class="terminal-alert"> <a>Box</a> </div>
-                <div class="terminal-alert"> <a>Box</a> </div>
+
+        <div id="content">
+            <hr>
+
+            <!-- Where the stuff in the page will get swapped out -->
+            <div id="projects">
+                <table class="doubleline">
+                    <caption> GitHub Projects </caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Language</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th><a href="https://www.github.com/SirHall/Excessives">Excessives</a> </th>
+                            <th>C#</th>
+                            <th>A C# utilities library</th>
+                        </tr>
+                        <tr>
+                            <th><a href="https://www.github.com/SirHall/UnityExcessives">UnityExcessives</a> </th>
+                            <th>C#</th>
+                            <th>A Unity3D-specific extension to the Excessives library</th>
+                        </tr>
+                        <tr>
+                            <th><a href="https://www.github.com/SirHall/volt_net">VoltNet</a> </th>
+                            <th>C++</th>
+                            <th>A lightweight TCP message-based networking, built ontop of Networking TS</th>
+                        </tr>
+                        <tr>
+                            <th><a href="https://www.github.com/SirHall/volt_gfx">VoltGFX</a> </th>
+                            <th>C++</th>
+                            <th>A C++ wrapper around OpenGL and glfw</th>
+                        </tr>
+                        <tr>
+                            <th><a href="https://www.github.com/SirHall/appe">APPE</a> </th>
+                            <th>C#</th>
+                            <th>The Advanced Projectile Physics Engine written for Unity3D</th>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
 
         </div>
 
-        <div id="content">
+        <br>
 
-            <table>
-                <caption> GitHub Projects </caption>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Language</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <th><a href="https://www.github.com/SirHall/Excessives">Excessives</a> </th>
-                        <th>C#</th>
-                        <th>A C# utilities library</th>
-                    </tr>
-                    <tr>
-                        <th><a href="https://www.github.com/SirHall/UnityExcessives">UnityExcessives</a> </th>
-                        <th>C#</th>
-                        <th>A Unity3D-specific extension to the Excessives library</th>
-                    </tr>
-                    <tr>
-                        <th><a href="https://www.github.com/SirHall/volt_net">VoltNet</a> </th>
-                        <th>C++</th>
-                        <th>A lightweight TCP message-based networking, built ontop of Networking TS</th>
-                    </tr>
-                    <tr>
-                        <th><a href="https://www.github.com/SirHall/volt_gfx">VoltGFX</a> </th>
-                        <th>C++</th>
-                        <th>A C++ wrapper around OpenGL and glfw</th>
-                    </tr>
-                    <tr>
-                        <th><a href="https://www.github.com/SirHall/appe">APPE</a> </th>
-                        <th>C#</th>
-                        <th>The Advanced Projectil Physics Engine written for Unity3D</th>
-                    </tr>
-
-                </tbody>
-            </table>
-
-        </div>
     </div>
 
 
 
 </body>
+
 
 </html>

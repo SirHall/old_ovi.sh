@@ -9,6 +9,10 @@
     --code-bg-color: #354046;
     --global-font-size: 20px;
     --global-line-height: 2;
+    --input-style: dashed;
+    /* --display-h1-decoration: block; */
+    --sidebar-width: 10%;
+    --sidebar-button-width: 100%;
 }
 
 /* body {
@@ -21,10 +25,6 @@ background-image:;
 * {
     font-family: "TheGoodMonolith", "Consolas", "Lucida Console";
     /* font-size: 20px; */
-}
-
-a {
-    color: var(--v-links);
 }
 
 .header_item {
@@ -53,21 +53,61 @@ body {
     justify-content: center;
     align-items: center;
     height: 10%;
+    left: var(--sidebar-width);
 }
 
 #page {
     display: flex;
     height: calc( 100vh - 30px);
-    /* calculate the height. Header is 30px */
+    left: var(--sidebar-width);
 }
 
 #sideBar {
-    width: 10%;
+    width: var(--sidebar-width);
+    height: 100%;
+    position: fixed;
 }
 
 #content {
     flex: 1 0 auto;
     margin-left: 10%;
     margin-right: 10%;
+    left: var(--sidebar-width);
     /* enable grow, disable shrink */
 }
+
+/* Customize Terminal CSS */
+
+.doubleline table, tr, th, td, tbody, thead {
+    border-style: double;
+    border-width: 6px;
+}
+
+/* Fix the terminal prompt */
+
+.terminal-prompt {
+    color: var(--primary-color);
+}
+
+.terminal-prompt::before {
+    color: var(--primary-color);
+    content: "> ";
+}
+
+.terminal-prompt::after {
+    bottom: -10px;
+}
+
+/* Fix terminal <hr> */
+
+hr {
+    border-bottom: 2px dashed var(--secondary-color);
+}
+
+.sidebar-button {
+    width: var(--sidebar-button-width);
+}
+
+/* table {
+    width: 80%;
+} */
