@@ -4,3 +4,4 @@ let outputDir = "dist"
 
 fs.ensureDirSync(`./${outputDir}`);
 
+fs.copySync("./src/", `./${outputDir}`, { overwrite: true });
