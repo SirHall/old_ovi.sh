@@ -70,8 +70,8 @@ body {
 
 #content {
     flex: 1 0 auto;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
     left: var(--sidebar-width);
     /* enable grow, disable shrink */
 }

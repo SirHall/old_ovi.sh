@@ -23,30 +23,30 @@
     <div id="sideBar" class="terminal-card" , style="background-color: black;">
         <header>Index</header>
         <div>
-            <button class="btn btn-default btn-ghost sidebar-button"> Spaceship </button>
+            <button onclick="ChangeRoute('spaceship')" class="btn btn-default btn-ghost sidebar-button"> Spaceship
+            </button>
             <br>
             <br>
-            <button class="btn btn-default btn-ghost sidebar-button"> Contact </button>
-            <br>
-            <br>
-
-
-
-
-
-
-            <button class="btn btn-primary btn-ghost sidebar-button"> Projects </button>
-            <br>
-            <br>
-            <button class="btn btn-primary btn-ghost sidebar-button"> Links </button>
-            <br>
-            <br>
-            <button class="btn btn-primary btn-ghost sidebar-button"> Theory </button>
+            <button onclick="ChangeRoute('contact')" class="btn btn-default btn-ghost sidebar-button"> Contact
+            </button>
             <br>
             <br>
 
 
-            <button class="btn btn-error btn-ghost sidebar-button"> Donate </button>
+
+            <button onclick="ChangeRoute('projects')" class="btn btn-primary btn-ghost sidebar-button"> Projects
+            </button>
+            <br>
+            <br>
+            <button onclick="ChangeRoute('links')" class="btn btn-primary btn-ghost sidebar-button"> Links </button>
+            <br>
+            <br>
+            <button onclick="ChangeRoute('theory')" class="btn btn-primary btn-ghost sidebar-button"> Theory </button>
+            <br>
+            <br>
+
+
+            <button onclick="ChangeRoute('donate')" class="btn btn-error btn-ghost sidebar-button"> Donate </button>
             <br>
             <br>
         </div>
@@ -69,7 +69,12 @@
             <hr>
 
             <!-- Where the stuff in the page will get swapped out -->
-            <div id="projects">
+
+            <div id="route_home"> Home </div>
+            <div id="route_spaceship"> Spaceship </div>
+            <div id="route_contact"> Contact </div>
+
+            <div id="route_projects">
                 <table class="doubleline">
                     <caption> GitHub Projects </caption>
                     <thead>
@@ -94,7 +99,7 @@
                         <tr>
                             <th><a href="https://www.github.com/SirHall/volt_net">VoltNet</a> </th>
                             <th>C++</th>
-                            <th>A lightweight TCP message-based networking, built ontop of Networking TS</th>
+                            <th>A lightweight TCP message-based networking, built on-top of Networking TS</th>
                         </tr>
                         <tr>
                             <th><a href="https://www.github.com/SirHall/volt_gfx">VoltGFX</a> </th>
@@ -111,13 +116,17 @@
                 </table>
             </div>
 
+            <div id="route_links"> Links </div>
+            <div id="route_theory"> Theory </div>
+            <div id="route_donate"> Donate </div>
+
         </div>
 
         <br>
 
     </div>
 
-
+    <script src="index.js"></script>
 
 </body>
 
