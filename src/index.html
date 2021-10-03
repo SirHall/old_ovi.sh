@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The Ovi.sh personal website">
 
-    <link href="http://fonts.cdnfonts.com/css/thegoodmonolith" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/thegoodmonolith" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
     <link rel="stylesheet" href="./styles.css?v=1.0">
@@ -19,10 +19,13 @@
 </head>
 
 <body>
-
     <div id="sideBar" class="terminal-card" , style="background-color: black;">
         <header>Index</header>
         <div>
+            <button onclick="ChangeRoute('')" class="btn btn-default btn-ghost sidebar-button"> Home
+            </button>
+            <br>
+            <br>
             <button onclick="ChangeRoute('spaceship')" class="btn btn-default btn-ghost sidebar-button"> Spaceship
             </button>
             <br>
@@ -71,7 +74,9 @@
             <!-- Where the stuff in the page will get swapped out -->
 
             <div id="route_home"> Home </div>
+
             <div id="route_spaceship"> Spaceship </div>
+
             <div id="route_contact"> Contact </div>
 
             <div id="route_projects">
@@ -116,8 +121,15 @@
                 </table>
             </div>
 
-            <div id="route_links"> Links </div>
+            <div id="route_links">
+                <h2>Links</h2>
+                <ul>
+                    <li> <a href="https://www.github.com/SirHall"> GitHub </a> </li>
+                </ul>
+            </div>
+
             <div id="route_theory"> Theory </div>
+
             <div id="route_donate"> Donate </div>
 
         </div>
