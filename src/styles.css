@@ -111,3 +111,7 @@ hr {
 /* table {
     width: 80%;
 } */
+
+.page_section {
+    display: none;
+}
