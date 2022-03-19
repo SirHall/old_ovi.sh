@@ -1,6 +1,5 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -11,149 +10,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The Ovi.sh personal website">
 
-    <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
-    <link rel="stylesheet" href="./styles.css?v=1.0">
+    <link rel="stylesheet" href="./styles.css">
 
+
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="sideBar" class="terminal-card" , style="background-color: black;">
-        <header>Index</header>
-        <div>
-            <button onclick="ChangeRoute('')" class="btn btn-default btn-ghost sidebar-button"> Home
-            </button>
-            <br>
-            <br>
-            <button onclick="ChangeRoute('spaceship')" class="btn btn-default btn-ghost sidebar-button"> Spaceship
-            </button>
-            <br>
-            <br>
-            <button onclick="ChangeRoute('contact')" class="btn btn-default btn-ghost sidebar-button"> Contact
-            </button>
-            <br>
-            <br>
+    <div class="title-text">Ovi.sh</div>
 
+    <!-- <canvas id="viewport"></canvas> -->
 
+    <script src="dep/three.js" type="text/javascript"></script>
+    <script type="text/javascript" src="three.js"></script>
+    <script type="text/javascript" src="CopyShader.js"></script>
+    <script type="text/javascript" src="ShaderPass.js"></script>
+    <script type="text/javascript" src="EffectComposer.js"></script>
+    <script type="text/javascript" src="RenderPass.js"></script>
+    <script type="text/javascript" src="MaskPass.js"></script>
 
-            <button onclick="ChangeRoute('projects')" class="btn btn-primary btn-ghost sidebar-button"> Projects
-            </button>
-            <br>
-            <br>
-            <button onclick="ChangeRoute('links')" class="btn btn-primary btn-ghost sidebar-button"> Links </button>
-            <br>
-            <br>
-            <button onclick="ChangeRoute('theory')" class="btn btn-primary btn-ghost sidebar-button"> Theory </button>
-            <br>
-            <br>
-
-
-            <button onclick="ChangeRoute('donate')" class="btn btn-error btn-ghost sidebar-button"> Donate </button>
-            <br>
-            <br>
-        </div>
-
-    </div>
-
-    <div id="header">
-        <div id="header_item">
-            <div class="terminal-logo">
-                <h1 class="logo terminal-prompt">Ovi</h1>
-            </div>
-        </div>
-        <div id="header_item">The Ovi personal site</div>
-    </div>
-
-
-    <div id="page">
-
-        <div id="content">
-            <hr>
-
-            <!-- Where the stuff in the page will get swapped out -->
-
-            <div id="route_home" class="page_section">
-                <p>
-                    <i>
-                        <center>
-                            <q>
-                                There is nothing quite so permanent as a C program, <br>
-                                or as temporary, as a JavaScript framework.
-                            </q>
-                        </center>
-                    </i>
-                </p>
-
-                <p>
-                    See more <i>deep</i> quotes like this.
-                </p>
-            </div>
-
-            <div id="route_spaceship" class="page_section"> Spaceship </div>
-
-            <div id="route_contact" class="page_section"> Contact </div>
-
-            <div id="route_projects" class="page_section">
-                <table class="doubleline">
-                    <caption> GitHub Projects </caption>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Language</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <th><a href="https://www.github.com/SirHall/Excessives">Excessives</a> </th>
-                            <th>C#</th>
-                            <th>A C# utilities library</th>
-                        </tr>
-                        <tr>
-                            <th><a href="https://www.github.com/SirHall/UnityExcessives">UnityExcessives</a> </th>
-                            <th>C#</th>
-                            <th>A Unity3D-specific extension to the Excessives library</th>
-                        </tr>
-                        <tr>
-                            <th><a href="https://www.github.com/SirHall/volt_net">VoltNet</a> </th>
-                            <th>C++</th>
-                            <th>A lightweight TCP message-based networking, built on-top of Networking TS</th>
-                        </tr>
-                        <tr>
-                            <th><a href="https://www.github.com/SirHall/volt_gfx">VoltGFX</a> </th>
-                            <th>C++</th>
-                            <th>A C++ wrapper around OpenGL and glfw</th>
-                        </tr>
-                        <tr>
-                            <th><a href="https://www.github.com/SirHall/appe">APPE</a> </th>
-                            <th>C#</th>
-                            <th>The Advanced Projectile Physics Engine written for Unity3D</th>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <div id="route_links" class="page_section">
-                <h2>Links</h2>
-                <ul>
-                    <li> <a href="https://www.github.com/SirHall"> GitHub </a> </li>
-                </ul>
-            </div>
-
-            <div id="route_theory" class="page_section"> Theory </div>
-
-            <div id="route_donate" class="page_section"> Donate </div>
-
-        </div>
-
-        <br>
-
-    </div>
-
-    <script src="index.js"></script>
-
+    <script src="index.js" type="text/javascript"></script>
 </body>
-
 
 </html>

@@ -1,48 +1,72 @@
-let paramName = "p";
+/**
+ * @typedef {import('./dep/three.js')} THREE
+ */
 
-let paths = [
-    { path: "", id: "route_home" },
-    { path: "spaceship", id: "route_spaceship" },
-    { path: "contact", id: "route_contact" },
-    { path: "projects", id: "route_projects" },
-    { path: "links", id: "route_links" },
-    { path: "theory", id: "route_theory" },
-    { path: "donate", id: "route_donate" },
-];
+const time = new THREE.Clock();
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-function ChangeRoute(routeName)
-{
-    let route = paths.find(n => n.path === routeName);
+const tau = 6.28318530717958647692528676655900577;
 
-    if (route !== null)
-    {            
-        if ('URLSearchParams' in window) {
-            const searchParams = new URLSearchParams(window.location.search)
-            searchParams.set(paramName, routeName);
-            history.pushState(null, '',  window.location.pathname + '?' + searchParams.toString());
-        }
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-        // TODO: Iterating through route twice, do fix
-        ReadRoute();
-        
-        return;
-    }
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
-    console.error(`Could not find route ${routeName}`);
-}
+camera.position.z = 5;
 
-function ReadRoute()
-{
-    const params = new URLSearchParams(window.location.search)
-    const routeName = params.has(paramName) ? params.get(paramName) : "";
+// const fontLoader = new THREE.FontLoader();
 
-    paths.forEach(p => {        
-            const el = document.getElementById(p.id);
-            // Activate current and de-activate all others
-            if (el !== null)
-                el.style.display = p.path === routeName ? "block" : "none";
-    });
-    
-}
 
-document.addEventListener('DOMContentLoaded', ReadRoute, false);
+/**
+ * Full-screen textured quad shader
+ */
+
+const copyShader = {
+
+    uniforms: {
+
+        'tDiffuse': { value: null },
+        'opacity': { value: 1.0 }
+
+    },
+
+    vertexShader: /* glsl */`
+		varying vec2 vUv;
+		void main() {
+			vUv = uv;
+			gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+		}`,
+
+    fragmentShader: /* glsl */`
+		uniform float opacity;
+		uniform sampler2D tDiffuse;
+		varying vec2 vUv;
+		void main() {
+			vec4 texel = texture2D( tDiffuse, vUv );
+			gl_FragColor = opacity * texel;
+		}`
+
+};
+
+
+
+// const composer = new THREE.EffectComposer(renderer);
+// composer.addPass(copyShader);
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    const dt = time.getDelta();
+
+    cube.rotation.x += 0.60 * dt;
+    cube.rotation.y += 0.60 * dt;
+
+    renderer.render(scene, camera);
+};
+
+animate();
