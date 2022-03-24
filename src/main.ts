@@ -112,7 +112,7 @@ const material = new THREE.ShaderMaterial({
                          //       vec3(logInterp(z, float(i), float(iter)))),
                          : hsv2rgb(vec3(-time * -0.1, 0.0, 0.0) +
                                    mix(vec3(0.0, 1.0, 1.0), vec3(0.01, 1.0, 1.0),
-                                       vec3(logInterp(z, float(i), float(iter))))),
+                                       vec3(logInterp(z, float(i*2), float(iter))))),
                      1.0);
     }
     
