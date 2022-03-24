@@ -45,7 +45,13 @@ const material = new THREE.ShaderMaterial({
     fragmentShader: `
     #define M_PI 3.1415926535897932384626433832795
 
-
+    #ifdef GL_FRAGMENT_PRECISION_HIGH
+       precision highp float;
+    #else
+       precision mediump float;
+    #endif
+       precision mediump int;
+    
     // uniform sampler2D gfxTex1;
     uniform float     time;
     uniform vec2      resolution;
@@ -89,7 +95,7 @@ const material = new THREE.ShaderMaterial({
             float x = (z.x * z.x - z.y * z.y) + c.x;
             float y = (z.y * z.x + z.x * z.y) + c.y;
     
-            if ((x * x + y * y) > scale)
+            if ((x * x + y * x) > scale)
                 break;
             z.x = x;
             z.y = y;
@@ -98,11 +104,12 @@ const material = new THREE.ShaderMaterial({
         // sqrt(z.x * z.x + z.y * z.y)
         gl_FragColor = vec4((i >= iter)
                          ? vec3(0.0)
-                        //  : mix(vec3(0.0, 0.0, 0.0),
-                        //        vec3(abs(sin(3.0 * time / 10.0)) / 100.0, abs(cos(5.0 * time /
-                        //        10.0)) / 100.0,
-                        //             abs(sin(7.0 * time / 10.0)) / 100.0),
-                        //        vec3(logInterp(z, float(i), float(iter)))),
+                        
+                         // : mix(vec3(0.0, 0.0, 0.0),
+                         //       vec3(abs(sin(3.0 * time / 10.0)) / 100.0, abs(cos(5.0 * time /
+                         //       10.0)) / 100.0,
+                         //            abs(sin(7.0 * time / 10.0)) / 100.0),
+                         //       vec3(logInterp(z, float(i), float(iter)))),
                          : hsv2rgb(vec3(time * -0.1, 0.0, 0.0) +
                                    mix(vec3(0.0, 1.0, 1.0), vec3(0.01, 1.0, 1.0),
                                        vec3(logInterp(z, float(i), float(iter))))),
