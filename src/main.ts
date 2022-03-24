@@ -37,7 +37,7 @@ const material = new THREE.ShaderMaterial({
         void main()
         {
             vUv = uv;
-            timeQ = time / (float(gl_VertexID) + 1.0);
+            timeQ = time / (1.0 + (float(gl_VertexID)/10.0));
             gl_Position = vec4( position, 1.0 );
         }
     `,
