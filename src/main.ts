@@ -28,11 +28,16 @@ const material = new THREE.ShaderMaterial({
     },
 
     vertexShader: `
+        uniform float time;
+        
         varying vec2 vUv;
+        varying float timeQ;
+        
 
         void main()
         {
             vUv = uv;
+            timeQ = time / (float(gl_VertexID) + 1.0);
             gl_Position = vec4( position, 1.0 );
         }
     `,
@@ -58,6 +63,8 @@ const material = new THREE.ShaderMaterial({
     uniform float     ratio;
     
     varying vec2 vUv;
+    varying float timeQ;
+
     
     float logInterp(vec2 pos, float i, float iter)
     {
@@ -74,16 +81,17 @@ const material = new THREE.ShaderMaterial({
     
     void main()
     {
+        float t           = timeQ;
         float scale       = 4.0;
         int   iter        = 500;
         float iterRate    = 5.0;
         float maxZoomTime = 45.0;
-        iter              = int(mod(time * iterRate, float(iter)));
+        iter              = int(mod(t * iterRate, float(iter)));
         scale             = scale * scale;
     
         vec2 z = vec2(0.0);
     
-        float zoomTime = mod(time, maxZoomTime) + 1.0;
+        float zoomTime = mod(t, maxZoomTime) + 1.0;
         vec2  uv       = vUv - 0.5;
         vec2  c = (uv * vec2(ratio, 1.0)) / (pow(zoomTime, zoomTime / 10.0) / 100.0) +
                  vec2(-0.746, 0.1481643);
@@ -105,12 +113,12 @@ const material = new THREE.ShaderMaterial({
         gl_FragColor = vec4((i >= iter)
                          ? vec3(0.0)
                         
-                         // : mix(vec3(0.0, 0.0, 0.0),
-                         //       vec3(abs(sin(3.0 * time / 10.0)) / 100.0, abs(cos(5.0 * time /
-                         //       10.0)) / 100.0,
-                         //            abs(sin(7.0 * time / 10.0)) / 100.0),
-                         //       vec3(logInterp(z, float(i), float(iter)))),
-                         : hsv2rgb(vec3(-time * -0.1, 0.0, 0.0) +
+                        //  : mix(vec3(0.0, 0.0, 0.0),
+                        //        vec3(abs(sin(3.0 * t / 10.0)) / 100.0, abs(cos(5.0 * t /
+                        //        10.0)) / 100.0,
+                        //             abs(sin(7.0 * t / 10.0)) / 100.0),
+                        //        vec3(logInterp(z, float(i), float(iter)))),
+                         : hsv2rgb(vec3(-t * -0.1, sin(t*10.0)*0.5+0.5, 0.0) +
                                    mix(vec3(0.0, 1.0, 1.0), vec3(0.01, 1.0, 1.0),
                                        vec3(logInterp(z, float(i*2), float(iter))))),
                      1.0);
