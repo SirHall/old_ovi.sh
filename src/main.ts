@@ -27,7 +27,7 @@ const material = new THREE.ShaderMaterial({
         ratio: { value: window.innerWidth / window.innerHeight }
     },
 
-    vertexShader: `
+    vertexShader: /*glsl*/`
         uniform float time;
         
         varying vec2 vUv;
@@ -47,7 +47,7 @@ const material = new THREE.ShaderMaterial({
 
     // uniform float time;
 
-    fragmentShader: `
+    fragmentShader: /*glsl*/`
     #define M_PI 3.1415926535897932384626433832795
 
     #ifdef GL_FRAGMENT_PRECISION_HIGH
